@@ -1,0 +1,36 @@
+@import './base.css';
+@import "tailwindcss";
+
+#app {
+  margin: 0 auto;
+  font-size: 16px;
+  font-weight: normal;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+a {
+  position: relative;
+  text-decoration: none;
+  color: var(--color-text-button);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+a::before {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1.5px;
+  background-color: var(--color-text-button-active);
+  transition: width 0.5s ease-in-out;
+}
+
+@media (hover: hover) {
+  a:hover::before {
+    width: 75%;
+  }
+}

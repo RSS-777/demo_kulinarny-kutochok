@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /dashboard
+Disallow: /login
+Disallow: /registration
+Disallow: /admin
+
+Sitemap: https://kulinarny-kutochok.com.ua/sitemap.xml

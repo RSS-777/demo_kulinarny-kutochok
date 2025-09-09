@@ -1,0 +1,39 @@
+:root {
+  --vt-white-text: rgba(72, 74, 75, 1);
+  --vt-white-title: rgba(24, 47, 69, 1);
+  --vt-white-title-two: rgba(129, 83, 63, 1);
+  --vt-white-text-button: rgba(53, 55, 57, 1);
+  --vt-white-text-button-white: rgba(255, 255, 255, 1);
+  --vt-white-text-button-active: rgba(216, 139, 90, 1);
+  --vt-white-background-button-orange: rgba(216, 139, 90, 1);
+  --vt-white-background-block-gray: rgba(231, 233, 237, 1);
+  --vt-white-background-block-crem: rgba(251, 235, 225, 1);
+  --vt-white-background-pages: rgba(255, 255, 255, 1);
+  --vt-white-background-footer: rgba(249, 249, 251, 1);
+}
+
+:root {
+  --color-text: var(--vt-white-text);
+  --color-title-h1: var(--vt-white-title);
+  --color-title-h2: var(--vt-white-title-two);
+  --color-background-button: var(--vt-white-background-button-orange);
+  --color-text-button: var(--vt-white-text-button);
+  --color-text-button-white: var(--vt-white-text-button-white);
+  --color-text-button-active: var(--vt-white-text-button-active);
+  --color-background-block-gray: var(--vt-white-background-block-gray);
+  --color-background-block-crem: var(--vt-white-background-block-crem);
+  --color-background-pages: var(--vt-white-background-pages);
+  --color-background-footer: var(--vt-white-background-footer);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+  font-family: system-ui, sans-serif;
+}
