@@ -30,7 +30,7 @@ useHead({
       </p>
       <button
         @click="router.push('/')"
-        class="button-change py-2 px-6 rounded-lg text-sm cursor-pointer shadow-md shadow-black/40 hover:shadow-sm duration-150"
+        class="button-change py-2 px-6 rounded-lg text-sm cursor-pointer shadow-md shadow-black/40 duration-150"
       >
         На головну
       </button>
@@ -52,8 +52,19 @@ useHead({
   border: 2px solid var(--color-background-button);
 }
 
-.button-change:hover {
-  color: var(--color-text-button-white);
-  background-color: var(--color-text-button-active);
+@media (hover: hover) and (pointer: fine) {
+  .button-change:hover {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .button-change:active {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
 }
 </style>

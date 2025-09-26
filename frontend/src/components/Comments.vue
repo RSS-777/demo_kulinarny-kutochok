@@ -221,7 +221,7 @@ onMounted(async () => {
         ></textarea>
         <button
           @click="handleAddReply(comment._id)"
-          class="button-change mt-2 px-4 py-2 rounded-lg text-sm cursor-pointer w-fit shadow-md shadow-black/40 hover:shadow-sm duration-150"
+          class="button-change mt-2 px-4 py-2 rounded-lg text-sm cursor-pointer w-fit shadow-md shadow-black/40 duration-150"
         >
           Надіслати відповідь
         </button>
@@ -251,8 +251,19 @@ onMounted(async () => {
   border: 2px solid var(--color-background-button);
 }
 
-.button-change:hover {
-  color: var(--color-text-button-white);
-  background-color: var(--color-text-button-active);
+@media (hover: hover) and (pointer: fine) {
+  .button-change:hover {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .button-change:active {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
 }
 </style>

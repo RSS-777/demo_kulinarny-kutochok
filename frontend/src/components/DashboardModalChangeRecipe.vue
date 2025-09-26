@@ -26,7 +26,7 @@ const handleSentRecipe = (value: boolean) => {
                 mode="edit" :recipeToEdit="selectedRecipeChange" />
             <div class="flex justify-center md:justify-end max-w-xl m-auto">
                 <button @click="emit('closeChangeRecipe')" :disabled="sentRecipe"
-                    class="button-change py-[2px] px-[10px] rounded-lg text-sm cursor-pointer w-fit shadow-md shadow-black/40 hover:shadow-sm duration-150">
+                    class="button-change py-[2px] px-[10px] rounded-lg text-sm cursor-pointer w-fit shadow-md shadow-black/40 duration-150">
                     Скасувати редагування
                 </button>
             </div>
@@ -40,8 +40,19 @@ const handleSentRecipe = (value: boolean) => {
     border: 2px solid var(--color-background-button);
 }
 
-.button-change:hover {
+@media (hover: hover) and (pointer: fine) {
+  .button-change:hover {
     color: var(--color-text-button-white);
     background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .button-change:active {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
 }
 </style>

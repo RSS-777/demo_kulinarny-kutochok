@@ -289,6 +289,7 @@ onMounted(async () => {
     if (favoritesAuthors) {
       await fetchFavoriteAuthorsData()
     }
+
     if (favoritesRecipes) {
       await fetchFavoriteRecipesData()
     }

@@ -97,7 +97,7 @@ const onSubmit = handleSubmit((values: TypeLoginForm) => {
       <button
         type="submit"
         :disabled="isSubmitting || isRedirecting"
-        class="btn-submit py-2 px-4 rounded-lg text-sm cursor-pointer w-full transition shadow-md shadow-black/40 hover:shadow-sm duration-150"
+        class="btn-submit py-2 px-4 rounded-lg text-sm cursor-pointer w-full transition shadow-md shadow-black/40 duration-150"
       >
         Увійти
       </button>
@@ -122,9 +122,20 @@ h1 {
   border: 2px solid var(--color-background-button);
 }
 
-.btn-submit:hover {
-  color: var(--color-text-button-white);
-  background-color: var(--color-text-button-active);
+@media (hover: hover) and (pointer: fine) {
+  .btn-submit:hover {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .btn-submit:active {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
 }
 
 .registrationLink {

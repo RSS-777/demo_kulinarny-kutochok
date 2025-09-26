@@ -120,7 +120,7 @@ watch(
             <button
               @click="handleClick"
               :disabled="isLoading && !!authStore.token"
-              class="button-subscribe py-[2px] px-[10px] rounded-lg text-sm cursor-pointer w-fit shadow-md shadow-black/40 hover:shadow-sm duration-150"
+              class="button-subscribe py-[2px] px-[10px] rounded-lg text-sm cursor-pointer w-fit shadow-md shadow-black/40 duration-150"
             >
               {{ textButton }}
             </button>
@@ -161,8 +161,19 @@ footer {
   border: 2px solid var(--color-background-button);
 }
 
-.button-subscribe:hover {
-  color: var(--color-text-button-white);
-  background-color: var(--color-text-button-active);
+@media (hover: hover) and (pointer: fine) {
+  .button-subscribe:hover {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .button-subscribe:active {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
 }
 </style>

@@ -87,7 +87,7 @@ onMounted(() => {
         <div class="flex justify-end mb-2">
           <button
             @click.stop="handleDeleteComment(comments._id)"
-            class="button-delete py-[2px] px-[10px] rounded-lg text-sm cursor-pointer shadow-md hover:shadow-sm duration-150"
+            class="button-delete py-[2px] px-[10px] rounded-lg text-sm cursor-pointer shadow-md duration-150"
             :disabled="isSubmitting"
           >
             Видалити коментар
@@ -102,7 +102,7 @@ onMounted(() => {
               <div class="flex justify-end mt-1">
                 <button
                   @click.stop="handleDeleteAnswer(comments._id, answer.id)"
-                  class="button-delete py-[2px] px-[10px] rounded-lg text-xs cursor-pointer shadow-md hover:shadow-sm duration-150"
+                  class="button-delete py-[2px] px-[10px] rounded-lg text-xs cursor-pointer shadow-md duration-150"
                   :disabled="isSubmitting"
                 >
                   Видалити відповідь
@@ -128,8 +128,19 @@ onMounted(() => {
   border: 2px solid #fb2c36;
 }
 
-.button-delete:hover {
-  color: white;
-  background-color: #fb2c36;
+@media (hover: hover) and (pointer: fine) {
+  .button-deleten:hover {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .button-delete:active {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
 }
 </style>

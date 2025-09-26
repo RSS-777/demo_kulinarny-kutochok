@@ -104,7 +104,7 @@ const category = {
         <li v-for="(name, key) in category" :key="key">
           <button
             @click="handleSelectCategory(key)"
-            class="py-[2px] px-[10px] rounded-lg text-sm cursor-pointer shadow-md shadow-black/40 hover:shadow-sm duration-150"
+            class="py-[2px] px-[10px] rounded-lg text-sm cursor-pointer shadow-md shadow-black/40 duration-150"
             :class="filterStore.category === key ? 'active' : ''"
           >
             {{ name }}
@@ -116,17 +116,30 @@ const category = {
 </template>
 
 <style scoped>
+h2 {
+  color: var(--color-title-h2);
+}
+
 button {
   color: var(--color-background-button);
   border: 2px solid var(--color-background-button);
 }
 
-.active {
+@media (hover: hover) and (pointer: fine) {
+  button:hover {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  button:active {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+button .active {
   color: var(--color-text-button-white);
   background-color: var(--color-text-button-active);
 }
 
-h2 {
-  color: var(--color-title-h2);
-}
 </style>

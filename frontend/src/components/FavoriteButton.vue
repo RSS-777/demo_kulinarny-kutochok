@@ -26,8 +26,17 @@ const { onClick, ariaPressed, title, disabled } = defineProps<{
   border: 2px solid var(--color-background-button);
 }
 
-.button-link:hover {
-  color: var(--color-text-button-white);
-  background-color: var(--color-text-button-active);
+@media (hover: hover) and (pointer: fine) {
+  .button-link:hover {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .button-link:active {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+  }
 }
 </style>

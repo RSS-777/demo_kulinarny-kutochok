@@ -13,7 +13,7 @@ const { user } = defineProps<{
         <div class="flex flex-col items-center sm:items-start">
             <h1 class="text-4xl font-bold title-color mb-1">{{ user?.name + ' ' + user?.lastName }}</h1>
             <button @click="requestDelete"
-                class="mt-3 py-2 px-5 rounded-lg border border-red-600 text-red-600 font-semibold hover:bg-red-600 hover:text-white transition shadow-md shadow-black/40 hover:shadow-sm duration-150 cursor-pointer">
+                class="mt-3 py-2 px-5 rounded-lg border border-red-600 text-red-600 font-semibold transition shadow-md shadow-black/40 duration-150 cursor-pointer">
                 Видалити профіль
             </button>
         </div>
@@ -23,5 +23,21 @@ const { user } = defineProps<{
 <style scoped>
 .title-color {
     color: var(--color-title-h1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  button:hover {
+    color: white;
+    background-color: #fb2c36;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  button:active {
+    color: white;
+    background-color: #fb2c36;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
 }
 </style>

@@ -308,7 +308,7 @@ const confirmCode = () => {
         <button
           type="submit"
           :disabled="isSubmitting || confirmEd"
-          class="submit-button py-2 px-4 mt-2 rounded-lg text-sm cursor-pointer w-full transition shadow-md shadow-black/40 hover:shadow-sm duration-150"
+          class="submit-button py-2 px-4 mt-2 rounded-lg text-sm cursor-pointer w-full transition shadow-md shadow-black/40 duration-150"
         >
           Підтвердити код
         </button>
@@ -365,20 +365,33 @@ input[type='checkbox']:checked {
   transition: width 0.5s ease-in-out;
 }
 
-@media (hover: hover) {
-  .rules:hover::before {
-    width: 75%;
-  }
-}
-
 .submit-button {
   color: var(--color-background-button);
   border: 2px solid var(--color-background-button);
 }
 
-.submit-button:hover {
-  color: var(--color-text-button-white);
-  background-color: var(--color-text-button-active);
+@media (hover: hover) and (pointer: fine) {
+  .submit-button:hover {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .rules:hover::before {
+    width: 75%;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .submit-button:active {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .rules:active::before {
+    width: 75%;
+  }
 }
 
 .login-link {

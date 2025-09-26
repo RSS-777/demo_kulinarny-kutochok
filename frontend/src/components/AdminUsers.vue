@@ -91,13 +91,13 @@ onMounted(() => {
         <span class="text-xs text-gray-500 mb-1">{{ user.email }}</span>
         <div class="flex justify-center items-center gap-2">
           <button @click.stop="handleBlockedUser(user.email)"
-            class="py-[2px] px-[10px] rounded-lg text-sm cursor-pointer shadow-md hover:shadow-sm duration-150"
+            class="py-[2px] px-[10px] rounded-lg text-sm cursor-pointer shadow-md duration-150"
             :class="banList.some(item => item.email === user.email) ? 'button-banned' : 'button-change'"
             :disabled="fetchMessage !== ''">
             {{banList.some(item => item.email === user.email) ? 'Розблокувати' : 'Заблокувати'}}
           </button>
           <button @click.stop="handleDeleteUser(user._id)"
-            class="button-delete py-[2px] px-[10px] rounded-lg text-sm cursor-pointer shadow-md hover:shadow-sm duration-150"
+            class="button-delete py-[2px] px-[10px] rounded-lg text-sm cursor-pointer shadow-md duration-150"
             :disabled="fetchMessage !== ''">
             Видалити
           </button>
@@ -121,11 +121,6 @@ onMounted(() => {
   border: 2px solid var(--color-background-button);
 }
 
-.button-change:hover {
-  color: var(--color-text-button-white);
-  background-color: var(--color-text-button-active);
-}
-
 .button-banned {
   color: gray;
   border: 2px solid gray;
@@ -136,8 +131,33 @@ onMounted(() => {
   border: 2px solid #fb2c36;
 }
 
-.button-delete:hover {
-  color: white;
-  background-color: #fb2c36;
+
+
+@media (hover: hover) and (pointer: fine) {
+  .button-change:hover {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .button-delete:hover {
+    color: white;
+    background-color: #fb2c36;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .button-change:active {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .button-delete:active {
+    color: white;
+    background-color: #fb2c36;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
 }
 </style>

@@ -26,7 +26,7 @@ const emit = defineEmits<{
                     <span class="font-medium text-color">{{ author.name }}</span>
                 </div>
                 <button @click="emit('removeAuthorFavorite', author.id)"
-                    class="button-delete py-[2px] px-[10px] rounded-lg text-sm cursor-pointer w-fit shadow-md shadow-black/40 hover:shadow-sm duration-150">
+                    class="button-delete py-[2px] px-[10px] rounded-lg text-sm cursor-pointer w-fit shadow-md shadow-black/40 duration-150">
                     Видалити
                 </button>
             </li>
@@ -51,8 +51,19 @@ const emit = defineEmits<{
     border: 2px solid #fb2c36;
 }
 
-.button-delete:hover {
+@media (hover: hover) and (pointer: fine) {
+  .button-delete:hover {
     color: white;
     background-color: #fb2c36;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .button-delete:active {
+    color: white;
+    background-color: #fb2c36;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
 }
 </style>

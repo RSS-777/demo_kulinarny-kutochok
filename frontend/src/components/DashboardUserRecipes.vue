@@ -88,13 +88,13 @@ onMounted(async () => {
             <div class="flex sm:flex-col md:flex-row items-end gap-2">
               <button
                 @click.stop="handleOpenChangeRecipe(recipe._id)"
-                class="button-change py-[2px] px-[10px] rounded-lg text-sm cursor-pointer w-fit shadow-md shadow-black/40 hover:shadow-sm duration-150"
+                class="button-change py-[2px] px-[10px] rounded-lg text-sm cursor-pointer w-fit shadow-md shadow-black/40 duration-150"
               >
                 Редагувати
               </button>
               <button
                 @click.stop="handleDeleteRecipe(recipe._id)"
-                class="button-delete py-[2px] px-[10px] rounded-lg text-sm cursor-pointer w-fit shadow-md shadow-black/40 hover:shadow-sm duration-150"
+                class="button-delete py-[2px] px-[10px] rounded-lg text-sm cursor-pointer w-fit shadow-md shadow-black/40 duration-150"
               >
                 Видалити
               </button>
@@ -127,18 +127,36 @@ onMounted(async () => {
   border: 2px solid var(--color-background-button);
 }
 
-.button-change:hover {
-  color: var(--color-text-button-white);
-  background-color: var(--color-text-button-active);
-}
-
 .button-delete {
   color: #fb2c36;
   border: 2px solid #fb2c36;
 }
 
-.button-delete:hover {
-  color: white;
-  background-color: #fb2c36;
+@media (hover: hover) and (pointer: fine) {
+  .button-change:hover {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .button-delete:hover {
+    color: white;
+    background-color: #fb2c36;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .button-change:active {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .button-delete:active {
+    color: white;
+    background-color: #fb2c36;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
 }
 </style>

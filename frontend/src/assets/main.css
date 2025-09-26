@@ -9,12 +9,18 @@
   color: var(--color-text);
 }
 
+button, a {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
 a {
   position: relative;
   text-decoration: none;
   color: var(--color-text-button);
   transition: 0.4s;
   padding: 3px;
+  cursor: pointer;
 }
 
 a::before {
@@ -29,8 +35,14 @@ a::before {
   transition: width 0.5s ease-in-out;
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   a:hover::before {
+    width: 75%;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  a:active:before {
     width: 75%;
   }
 }

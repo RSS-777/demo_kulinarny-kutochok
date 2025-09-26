@@ -12,11 +12,11 @@ defineEmits(['cancel', 'confirm'])
       </p>
       <div class="flex justify-center gap-2">
         <button @click="$emit('cancel')"
-          class="button-cancel py-[2px] px-[10px] rounded-lg text-sm cursor-pointer w-fit shadow-md shadow-black/40 hover:shadow-sm duration-150">
+          class="button-cancel py-[2px] px-[10px] rounded-lg text-sm cursor-pointer w-fit shadow-md shadow-black/40 duration-150">
           Скасувати
         </button>
         <button @click="$emit('confirm')"
-          class="button-delete py-[2px] px-[10px] rounded-lg text-sm cursor-pointer w-fit shadow-md shadow-black/40 hover:shadow-sm duration-150">
+          class="button-delete py-[2px] px-[10px] rounded-lg text-sm cursor-pointer w-fit shadow-md shadow-black/40 duration-150">
           Видалити
         </button>
       </div>
@@ -34,18 +34,36 @@ defineEmits(['cancel', 'confirm'])
   border: 2px solid var(--color-background-button);
 }
 
-.button-cancel:hover {
-  color: var(--color-text-button-white);
-  background-color: var(--color-text-button-active);
-}
-
 .button-delete {
   color: #fb2c36;
   border: 2px solid #fb2c36;
 }
 
-.button-delete:hover {
-  color: white;
-  background-color: #fb2c36;
+@media (hover: hover) and (pointer: fine) {
+  .button-cancel:hover {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .button-delete:hover {
+    color: white;
+    background-color: #fb2c36;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .button-cancel:active {
+    color: var(--color-text-button-white);
+    background-color: var(--color-text-button-active);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .button-delete:active {
+    color: white;
+    background-color: #fb2c36;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
 }
 </style>
